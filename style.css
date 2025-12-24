@@ -331,8 +331,8 @@ body {
 
 .puzzle-container iframe {
     width: 100%;
-    height: 85vh;
-    min-height: 600px;
+    height: calc(100vh - 280px);
+    min-height: 700px;
     display: block;
 }
 
