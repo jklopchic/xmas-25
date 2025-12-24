@@ -1,0 +1,443 @@
+/* ==========================================
+   🎄 CHRISTMAS 2025 - STYLESHEET 🎄
+   ========================================== */
+
+/* CSS Variables */
+:root {
+    /* Christmas Colors */
+    --xmas-red: #C41E3A;
+    --xmas-red-dark: #8B0000;
+    --xmas-green: #228B22;
+    --xmas-green-dark: #165B16;
+    --xmas-gold: #FFD700;
+    --xmas-gold-dark: #DAA520;
+    --xmas-cream: #FFFEF0;
+    --xmas-snow: #F8F8FF;
+    --xmas-night: #1a1a2e;
+    --xmas-pine: #0D4D0D;
+    
+    /* Typography */
+    --font-display: 'Mountains of Christmas', cursive;
+    --font-body: 'Crimson Pro', Georgia, serif;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 5rem;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--xmas-cream);
+    background: linear-gradient(180deg, 
+        var(--xmas-night) 0%, 
+        #16213e 50%,
+        var(--xmas-pine) 100%
+    );
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   SNOWFALL ANIMATION
+   ========================================== */
+.snowflakes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.snowflake {
+    position: absolute;
+    top: -50px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.5rem;
+    animation: snowfall linear infinite;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.snowflake:nth-child(1) { left: 5%; animation-duration: 10s; animation-delay: 0s; font-size: 1.2rem; }
+.snowflake:nth-child(2) { left: 15%; animation-duration: 12s; animation-delay: 1s; font-size: 1.8rem; }
+.snowflake:nth-child(3) { left: 25%; animation-duration: 8s; animation-delay: 2s; font-size: 1rem; }
+.snowflake:nth-child(4) { left: 35%; animation-duration: 14s; animation-delay: 0.5s; font-size: 2rem; }
+.snowflake:nth-child(5) { left: 45%; animation-duration: 9s; animation-delay: 3s; font-size: 1.4rem; }
+.snowflake:nth-child(6) { left: 55%; animation-duration: 11s; animation-delay: 1.5s; font-size: 1.6rem; }
+.snowflake:nth-child(7) { left: 65%; animation-duration: 13s; animation-delay: 2.5s; font-size: 1.1rem; }
+.snowflake:nth-child(8) { left: 75%; animation-duration: 10s; animation-delay: 4s; font-size: 1.9rem; }
+.snowflake:nth-child(9) { left: 85%; animation-duration: 15s; animation-delay: 0.8s; font-size: 1.3rem; }
+.snowflake:nth-child(10) { left: 92%; animation-duration: 7s; animation-delay: 2s; font-size: 1.7rem; }
+.snowflake:nth-child(11) { left: 8%; animation-duration: 16s; animation-delay: 3.5s; font-size: 1rem; }
+.snowflake:nth-child(12) { left: 50%; animation-duration: 11s; animation-delay: 1.2s; font-size: 2.2rem; }
+
+@keyframes snowfall {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0.3;
+    }
+}
+
+/* ==========================================
+   PAGE LAYOUT
+   ========================================== */
+.page-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================
+   HEADER
+   ========================================== */
+.header {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+    position: relative;
+}
+
+.header-ornament {
+    position: absolute;
+    font-size: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: sway 3s ease-in-out infinite;
+}
+
+.header-ornament.left {
+    left: 5%;
+}
+
+.header-ornament.right {
+    right: 5%;
+    animation-delay: 1.5s;
+}
+
+@keyframes sway {
+    0%, 100% { transform: translateY(-50%) rotate(-5deg); }
+    50% { transform: translateY(-50%) rotate(5deg); }
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-weight: 700;
+    color: var(--xmas-cream);
+    text-shadow: 
+        3px 3px 0 var(--xmas-red),
+        6px 6px 0 var(--xmas-green),
+        0 0 30px rgba(255, 215, 0, 0.5);
+    margin-bottom: var(--spacing-xs);
+    letter-spacing: 0.05em;
+}
+
+.subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    color: var(--xmas-gold);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================
+   WELCOME SECTION
+   ========================================== */
+.welcome-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.welcome-card {
+    background: linear-gradient(135deg, 
+        rgba(196, 30, 58, 0.9) 0%, 
+        rgba(139, 0, 0, 0.9) 100%
+    );
+    border: 4px solid var(--xmas-gold);
+    border-radius: 20px;
+    padding: var(--spacing-lg);
+    text-align: center;
+    position: relative;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.welcome-card h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 6vw, 3rem);
+    color: var(--xmas-gold);
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-card p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--xmas-cream);
+}
+
+.card-decoration {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.7;
+}
+
+.card-decoration.top-left { top: 15px; left: 20px; }
+.card-decoration.top-right { top: 15px; right: 20px; }
+.card-decoration.bottom-left { bottom: 15px; left: 20px; }
+.card-decoration.bottom-right { bottom: 15px; right: 20px; }
+
+/* ==========================================
+   LINKS SECTION
+   ========================================== */
+.links-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    text-align: center;
+    color: var(--xmas-cream);
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.title-ornament {
+    font-size: 1.5rem;
+    animation: ring 1s ease-in-out infinite;
+}
+
+.title-ornament:last-child {
+    animation-delay: 0.5s;
+}
+
+@keyframes ring {
+    0%, 100% { transform: rotate(-10deg); }
+    50% { transform: rotate(10deg); }
+}
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.link-card {
+    background: linear-gradient(145deg, 
+        rgba(34, 139, 34, 0.9) 0%, 
+        rgba(13, 77, 13, 0.95) 100%
+    );
+    border: 3px solid var(--xmas-gold);
+    border-radius: 16px;
+    padding: var(--spacing-md);
+    text-align: center;
+    text-decoration: none;
+    color: var(--xmas-cream);
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.link-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg, 
+        transparent, 
+        rgba(255, 215, 0, 0.2), 
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.link-card:hover::before {
+    left: 100%;
+}
+
+.link-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(255, 215, 0, 0.3);
+    border-color: var(--xmas-cream);
+}
+
+.link-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.link-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--xmas-gold);
+    margin-bottom: var(--spacing-xs);
+}
+
+.link-card p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+/* ==========================================
+   MESSAGE SECTION
+   ========================================== */
+.message-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.message-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 215, 0, 0.5);
+    border-radius: 16px;
+    padding: var(--spacing-lg);
+    text-align: center;
+}
+
+.message-text {
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--xmas-cream);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.8;
+}
+
+.message-attribution {
+    color: var(--xmas-gold);
+    font-size: 1rem;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+.footer {
+    text-align: center;
+    padding: var(--spacing-lg) var(--spacing-md);
+    border-top: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.footer-trees {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.footer-trees span {
+    animation: treeSway 4s ease-in-out infinite;
+}
+
+.footer-trees span:nth-child(odd) {
+    animation-delay: 0.5s;
+}
+
+@keyframes treeSway {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+}
+
+.footer p {
+    color: var(--xmas-cream);
+    opacity: 0.8;
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-year {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--xmas-gold);
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+@media (max-width: 768px) {
+    .header-ornament {
+        display: none;
+    }
+    
+    .welcome-card {
+        padding: var(--spacing-md);
+    }
+    
+    .card-decoration {
+        font-size: 1.5rem;
+    }
+    
+    .links-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 16px;
+    }
+    
+    .page-wrapper {
+        padding: var(--spacing-sm);
+    }
+    
+    .snowflake {
+        font-size: 1rem;
+    }
+}
+
+/* ==========================================
+   ACCESSIBILITY
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+    .snowflake,
+    .header-ornament,
+    .title-ornament,
+    .footer-trees span,
+    .link-card::before {
+        animation: none;
+    }
+    
+    .link-card:hover {
+        transform: none;
+    }
+}
+
+/* Focus styles */
+.link-card:focus {
+    outline: 3px solid var(--xmas-gold);
+    outline-offset: 4px;
+}
+
